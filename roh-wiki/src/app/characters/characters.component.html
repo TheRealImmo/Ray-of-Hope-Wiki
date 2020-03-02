@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col-md-5">
-    <app-characterlist></app-characterlist>
+    <app-characterlist (characterWasSelected)="selectedCharacter = $event"></app-characterlist>
   </div>
   <div class="col-md-7">
-    <app-characterdetail></app-characterdetail>
+    <app-characterdetail *ngIf="selectedCharacter; else infoText" [character]="selectedCharacter"></app-characterdetail>
+    <ng-template #infoText>
+      <p>Wähle einen Charakter.</p>
+    </ng-template>
   </div>
 </div>

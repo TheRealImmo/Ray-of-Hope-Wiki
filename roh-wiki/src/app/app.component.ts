@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'roh-wiki';
+  loadedFeature = 'character';
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
 }

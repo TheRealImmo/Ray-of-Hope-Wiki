@@ -17,4 +17,8 @@ export class BackstoryComponent implements OnInit {
   ngOnInit() {
   }
 
+  onBackstoryAdded(backstory: Backstory) {
+    this.backstory.push(backstory);
+  }
+
 }

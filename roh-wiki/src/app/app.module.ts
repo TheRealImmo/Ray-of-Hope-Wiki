@@ -10,6 +10,7 @@ import { EnemylistComponent } from './enemies/enemylist/enemylist.component';
 import { CharacterdetailComponent } from './characters/characterdetail/characterdetail.component';
 import { BackstoryComponent } from './backstory/backstory.component';
 import { BackstoryEditComponent } from './backstory/backstory-edit/backstory-edit.component';
+import { CharacterOverviewComponent } from './characters/characterlist/character-overview/character-overview.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BackstoryEditComponent } from './backstory/backstory-edit/backstory-edi
     EnemylistComponent,
     CharacterdetailComponent,
     BackstoryComponent,
-    BackstoryEditComponent
+    BackstoryEditComponent,
+    CharacterOverviewComponent
   ],
   imports: [
     BrowserModule

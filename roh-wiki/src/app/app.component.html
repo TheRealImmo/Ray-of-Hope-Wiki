@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-characters></app-characters>
-      <app-backstory></app-backstory>
+      <app-characters *ngIf="loadedFeature === 'character'"></app-characters>
+      <app-backstory *ngIf="loadedFeature !== 'character'"></app-backstory>
     </div>
   </div>
 </div>
