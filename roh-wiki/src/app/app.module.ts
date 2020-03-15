@@ -11,6 +11,7 @@ import { CharacterdetailComponent } from './characters/characterdetail/character
 import { BackstoryComponent } from './backstory/backstory.component';
 import { BackstoryEditComponent } from './backstory/backstory-edit/backstory-edit.component';
 import { CharacterOverviewComponent } from './characters/characterlist/character-overview/character-overview.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CharacterOverviewComponent } from './characters/characterlist/character
     CharacterdetailComponent,
     BackstoryComponent,
     BackstoryEditComponent,
-    CharacterOverviewComponent
+    CharacterOverviewComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule
