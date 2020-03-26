@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Character } from '../../character.model';
+import { CharacterService } from '../../character.service';
 
 @Component({
   selector: 'app-character-overview',
@@ -8,15 +9,14 @@ import { Character } from '../../character.model';
 })
 export class CharacterOverviewComponent implements OnInit {
   @Input() character: Character;
-  @Output() recipeSelected = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private characterService: CharacterService) { }
 
   ngOnInit() {
   }
 
   onSelected() {
-    this.recipeSelected.emit();
+    this.characterService.characterSelected.emit(this.character);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Backstory } from '../shared/backstory.model';
+import { BackstoryService } from './backstory.service';
 
 @Component({
   selector: 'app-backstory',
@@ -7,18 +8,13 @@ import { Backstory } from '../shared/backstory.model';
   styleUrls: ['./backstory.component.css']
 })
 export class BackstoryComponent implements OnInit {
-  backstory: Backstory[] = [
-    new Backstory('Ray', 'Namensgeber des Spiels'),
-    new Backstory('Conny', 'Spontane Idee'),
+  backstory: Backstory[];
 
-  ];
-  constructor() { }
+  constructor(private backstoryService: BackstoryService) { }
 
   ngOnInit() {
-  }
-
-  onBackstoryAdded(backstory: Backstory) {
-    this.backstory.push(backstory);
+    this.backstory = this.backstoryService.getBackstories();
+    this.backstoryService.backstoryChanged.subscribe((backstory: Backstory[]) => { this.backstory = backstory });
   }
 
 }

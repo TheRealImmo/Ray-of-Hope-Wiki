@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
 import { Backstory } from 'src/app/shared/backstory.model';
+import { BackstoryService } from '../backstory.service';
 
 @Component({
   selector: 'app-backstory-edit',
@@ -9,9 +10,8 @@ import { Backstory } from 'src/app/shared/backstory.model';
 export class BackstoryEditComponent implements OnInit {
   @ViewChild('nameInput', { static: true }) nameInputRef: ElementRef;
   @ViewChild('infoInput', { static: true }) infoInputRef: ElementRef;
-  @Output() infoAdded = new EventEmitter<Backstory>();
 
-  constructor() { }
+  constructor(private backstoryService: BackstoryService) { }
 
   ngOnInit() {
   }
@@ -20,7 +20,7 @@ export class BackstoryEditComponent implements OnInit {
     const infoCharName = this.nameInputRef.nativeElement.value;
     const infoText = this.infoInputRef.nativeElement.value;
     const newBackstory = new Backstory(infoCharName, infoText);
-    this.infoAdded.emit(newBackstory);
+    this.backstoryService.addBackstory(newBackstory);
   }
 
   onDeleteChar() {
